@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "umb10-test", "umb10-test\umb10-test.csproj", "{5CF3D723-FFD6-41C1-992E-535F61A24CA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dit.Umb9.Mutobo.ToolBox", "Dit.Umb9.Mutobo.ToolBox\Dit.Umb9.Mutobo.ToolBox.csproj", "{52A23B2D-6C8F-42E4-8941-FB2CC0C873F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CF3D723-FFD6-41C1-992E-535F61A24CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF3D723-FFD6-41C1-992E-535F61A24CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF3D723-FFD6-41C1-992E-535F61A24CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF3D723-FFD6-41C1-992E-535F61A24CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A23B2D-6C8F-42E4-8941-FB2CC0C873F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A23B2D-6C8F-42E4-8941-FB2CC0C873F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A23B2D-6C8F-42E4-8941-FB2CC0C873F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A23B2D-6C8F-42E4-8941-FB2CC0C873F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE7D33EA-4822-41A0-9F53-E0DAB374240F}
+	EndGlobalSection
+EndGlobal
