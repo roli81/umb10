@@ -1,0 +1,15 @@
+﻿@using Dit.Umb9.Mutobo.ToolBox.Constants
+@using Dit.Umb9.Mutobo.ToolBox.Models.PoCo
+@using Image = Dit.Umb9.Mutobo.ToolBox.Models.PoCo.Image
+@model Dit.Umb9.Mutobo.ToolBox.Modules.Flyer
+@{
+    var img = Model.Image;
+    
+}
+<m-flyer href="@(Model.Link?.Url ?? "#")" @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "") direction=right   timer=2000>
+    <h1>@Model.Title</h1>
+    <p>
+        @Model.TeaserText
+    </p>
+    <a-picture defaultsource="@Model.Image.DefaultSource.Src" alt="@Model.Image.Alt" sources="@Model.Image.GetSourcesAsJSON()" />
+</m-flyer>

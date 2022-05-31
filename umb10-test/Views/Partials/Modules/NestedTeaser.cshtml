@@ -1,0 +1,23 @@
+﻿@using Dit.Umb9.Mutobo.ToolBox.Common.Extensions
+@model Dit.Umb9.Mutobo.ToolBox.Modules.Teaser
+    <o-teaser-wrapper @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+        <m-teaser>
+            @if (Model.Images.Any())
+            {
+                foreach (var image in Model.Images.Take(1))
+                {
+
+                    <a href="@Model.Link.Url" target="@Model.Link.Target">
+                        <figure>
+                            @image.RenderWcPictureTag()
+                            <figcaption>
+                                <h3>@Model.TeaserTitle</h3>
+                                <p>@Html.Raw(Model.TeaserText)</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                }
+            }
+        </m-teaser>
+    </o-teaser-wrapper>
+

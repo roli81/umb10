@@ -1,0 +1,29 @@
+﻿@using Umbraco.Web.Composing
+@using Dit.Umb.Mutobo.Constants
+@using Dit.Umb.Mutobo.Modules
+@model Dit.Umb.Mutobo.Modules.Teaser
+
+@if (Model.Images != null && Model.Images.Any())
+{
+    if (Model.Images.Count() < 2)
+    {
+        var image = Model.Images.FirstOrDefault();
+
+        if (image != null)
+        {
+            @image.RenderWcPictureTag()
+        }
+    }
+    else
+    {
+        @Html.Partial("~/Views/Partials/Slider.cshtml", new EmptySliderComponent(){ Slides = Model.Images })
+    }
+}
+<h3 @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>@Model.TeaserTitle</h3>
+<p>
+    @Html.Raw(Model.TeaserText)
+</p>
+<a href="@Model.Link.Url" target="@Model.Link.Target">
+    @Current.UmbracoHelper.GetDictionaryValue(DictionaryKeys.Global.ReadMore)
+</a>
+

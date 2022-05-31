@@ -1,0 +1,29 @@
+﻿@using Dit.Umb9.Mutobo.ToolBox.Models.PoCo
+@model Dit.Umb9.Mutobo.ToolBox.Modules.CardContainer
+
+<o-teaser-wrapper @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+    @foreach (var card in Model.Cards)
+    {
+        var target = card.DetailPageLink != null && !string.IsNullOrEmpty(card.DetailPageLink.Url) ? 
+            $"target={card.DetailPageLink.Target}" : string.Empty;
+        var href = card.DetailPageLink != null && !string.IsNullOrEmpty(card.DetailPageLink.Url)
+            ? $"href={card.DetailPageLink.Url}" : string.Empty;
+        <m-teaser>
+            <a @($"{href} {target}")>
+                @if (card.Image != null)
+                {
+                   @card.Image.RenderWcPictureTag(height: $"{card.Image.Height}px", width: $"{card.Image.Width}px")
+                }
+             
+                @if (card is Dit.Umb9.Mutobo.ToolBox.Modules.PersonalCard personalCard)
+                {
+                    <br/>
+                    <div>
+                        <h3>@personalCard.Firstname &nbsp; @personalCard.Lastname</h3>
+                        <p>@personalCard.Function</p>
+                    </div>
+                }
+            </a>
+        </m-teaser>
+    }
+</o-teaser-wrapper>

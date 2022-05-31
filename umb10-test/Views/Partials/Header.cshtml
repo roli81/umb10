@@ -1,0 +1,50 @@
+﻿@model Dit.Umb9.Mutobo.ToolBox.Interfaces.IHeaderConfiguration
+<o-header mobile-breakpoint="100vw" no-scroll="nav-open" menu-icon="true" namespace="header-">
+    @*    @if (Model.GlobalSlogan != null)
+        {
+        // TODO only show on home-page
+        <a-title namespace="header-title-">
+        <h1>
+        <span>@Model.GlobalSlogan.Title.ToUpper()</span>
+        <span class="secondary-color">@Model.GlobalSlogan.SubTitle</span>
+        </h1>
+        </a-title>
+        }*@
+
+    <div style="display:flex; flex-direction: row; align-items:center;">
+
+        @if (Model.Logo?.DefaultSource?.Src != null)
+        {
+            <a-logo namespace="logo-" src="@Model.Logo.DefaultSource.Src" href="@(!string.IsNullOrEmpty(Model.LogoUrl?.Url) ? Model.LogoUrl.Url : "#")">
+            </a-logo>
+        }
+
+
+
+
+    </div>
+
+    @if (Model.NavigationItems != null && Model.NavigationItems.Any())
+    {
+        <m-navigation hover="false" namespace="navigation-" mobile-breakpoint="0vw" no-scroll="nav-open">
+            <ul>
+                @foreach (var navItem in Model.NavigationItems)
+                {
+                    <li>
+                        <a href="@navItem.Url" target="@(navItem.NewWindow ? "_blank" : string.Empty)">@navItem.Title</a>
+                        @if (navItem.Children.Any())
+                        {
+                            <ul>
+                                @foreach (var childNavItem in navItem.Children)
+                                {
+                                    <li><a href="@childNavItem.Url" target="@(childNavItem.NewWindow ? "_blank" : string.Empty)">@childNavItem.Title</a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+
+            </ul>
+        </m-navigation>
+    }
+</o-header>

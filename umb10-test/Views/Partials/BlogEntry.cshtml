@@ -1,0 +1,30 @@
+﻿@using Dit.Umb.Mutobo
+@model Dit.Umb.Mutobo.PageModels.ContentPage
+
+
+
+
+<h2 id="@Model.Content.Name">@Model.PageTitle</h2>
+
+<p>
+    @Model.Abstract
+</p>
+
+
+@if (!string.IsNullOrEmpty(Model.MainContent))
+{
+    @Html.Raw(Model.MainContent)
+}
+
+
+@if (Model.Modules != null && Model.Modules.Any())
+{
+    foreach (var module in Model.Modules)
+    {
+        @module.RenderModule(Html)
+    }
+}
+
+<br />
+<br />
+

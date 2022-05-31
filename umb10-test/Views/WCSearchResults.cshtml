@@ -1,0 +1,53 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Dit.Umb9.Mutobo.ToolBox.Common.Extensions;
+@using Dit.Umb9.Mutobo.ToolBox.Models.PoCo;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Dit.Umb9.Mutobo.ToolBox.Models.Pages.SearchResultsPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "WCBasePage.cshtml";
+}
+
+<o-body>
+
+
+    @await Html.PartialAsync("~/Views/Partials/SearchForm.cshtml", new SearchFormModel() { })
+
+    @if (!string.IsNullOrEmpty(Model.Term))
+    {
+        <h3>@Umbraco.GetDictionaryValue("SearchResultsPageTitle")</h3>
+        if (Model.Results.Any())
+        {
+            //TODO: Texte in DictionaryKeys
+            <p>@string.Format("Zu deiner Suche nach \"{0}\" wurde/n {1} Resultat/e gefunden:", Model.Term, Model.Results.Count())</p>
+            <hr />
+            foreach (var searchResults in Model.Results)
+            {
+                <div style="display:flex; flex-direction:column; padding:5vh 0;">
+                    <h4>@searchResults.Title</h4>
+                    <p>@Html.Raw(searchResults.Abstract)</p>
+                    @*Uncomment this to reenable PDF-Results *@
+                    @*@if (searchResults.Documents != null && searchResults.Documents.Any())
+                        {
+
+                            <p>
+                                @(string.Format(Current.UmbracoHelper.GetDictionaryValue(DictionaryKeys.SearchPage.PdfResultText), Model.Term))
+                                <ul>
+                                    @foreach (var doc in searchResults.Documents)
+                                    {
+                                        <li><a href="@doc.Url" target="">@doc.Name</a></li>
+
+                                    }
+                                </ul>
+                            </p>
+                        }*@
+                    <a href="@searchResults.Url">@searchResults.UrlTitle</a>
+                </div>
+                <hr />
+            }
+        }
+        else if (!string.IsNullOrEmpty(Model?.Term))
+        {
+            <p>@($"Die Suche nach \"{Model.Term}\" ergab keine Resultate")</p>
+        }
+    }
+</o-body>

@@ -1,0 +1,24 @@
+﻿@model Dit.Umb9.Mutobo.ToolBox.Models.PoCo.SearchFormModel
+@using Dit.Umb9.Mutobo.ToolBox.Controllers.SurfaceControllers
+
+
+@*<m-form type="search" namespace="search-" use-html-submit >
+    @using (Html.BeginUmbracoForm<SearchFormController>(nameof(SearchFormController.PostData), FormMethod.Post))
+    {
+    <a-input type="text" namespace="search-field-">
+        <style>
+            :host > input:-webkit-autofill,
+            :host > input:-webkit-autofill:hover {
+                -webkit-text-fill-color: var(--background-color) !important;
+            }
+        </style>
+        @Html.Label("Suche")
+        @Html.TextBoxFor(m => m.SearchTerm, new { placeholder = "Suchbegriff" })
+    </a-input>
+        <a-button type="submit" src="~/assets/img/yellow/LUPE.svg" namespace="search-button-">
+                Suchen
+        </a-button>
+    }
+</m-form>*@
+
+<a-input inputid="inputSearch" placeholder="Suchen..." search="?q=" type=search></a-input>

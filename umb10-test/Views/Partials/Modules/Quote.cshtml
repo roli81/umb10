@@ -1,0 +1,12 @@
+﻿@model Dit.Umb9.Mutobo.ToolBox.Modules.Quote
+<article @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+    &laquo;
+    @Model.QuoteText
+    &raquo;
+    <br />
+    <small>
+        @Model.SpellerName,
+        <br />
+        @Model.SpellerFunction
+    </small>
+</article>

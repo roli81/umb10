@@ -1,0 +1,65 @@
+﻿@using Dit.Umb9.Mutobo.ToolBox.Constants
+@model Dit.Umb9.Mutobo.ToolBox.Modules.DoubleSliderComponent
+@using Dit.Umb9.Mutobo.ToolBox.Interfaces
+@inject  IDictionaryService dictionaryService
+
+<third-party-macro-carousel pagination loop height="@(Model.Height != null ? $"{Model.Height}px" : "auto")" 
+                            namespace="carousel-" interval="@(Model.Interval.HasValue && Model.Interval > 0 ? Model.Interval : 5000)" 
+                            sync-id="@Model.Key" @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+    @foreach (var slide in Model.Slides)
+    {
+        if (slide.Image != null)
+        {
+ 
+        @slide.Image.RenderWcPictureTag(nameSpace: @Model.GetPictureNameSpace())
+
+            
+        }
+
+    }
+</third-party-macro-carousel>
+
+
+<third-party-macro-carousel loop height="auto" namespace="carousel-" 
+                            sync-id="@Model.Key" disable-drag @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+    <style>
+        :host > macro-carousel > div.text {
+            align-items: start;
+        }
+            :host > macro-carousel > div.text > div {
+                text-align: center;
+                width: var(--content-width-not-web-component, 80%);
+            }
+        :host > macro-carousel > div.text > div p {
+            text-align: var(--p-text-align);
+        }
+        @@media only screen and (max-width:600px){
+        :host > macro-carousel > div.text > div {
+            width: var(--content-width-not-web-component-mobile, 90%);
+        }
+        }
+        </style>
+    
+
+        
+
+    @foreach (var slide in Model.Slides)
+    {
+        <div class="text">
+            <div>
+                <h3>@slide.Title</h3>
+                <p>
+                    @slide.Text
+
+                </p>
+                @if (slide.Link != null)
+                {
+                    <a href="@(slide.Link?.Url ?? "#")" target="@(slide.Link?.Target ?? string.Empty)">@dictionaryService.GetDictionaryValue(DictionaryKeys.Global.ReadMore)</a>
+                }
+            </div>
+        </div>
+    }
+</third-party-macro-carousel>
+
+
+

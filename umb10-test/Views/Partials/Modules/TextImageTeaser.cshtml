@@ -1,0 +1,28 @@
+@using Dit.Umb9.Mutobo.ToolBox.Constants
+@model Dit.Umb9.Mutobo.ToolBox.Modules.TextImageSlide
+
+@{
+    var tst = "";
+
+}
+
+@inject Dit.Umb9.Mutobo.ToolBox.Interfaces.IDictionaryService DictionaryService
+
+<div style="display:flex;flex-direction: column;" @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+    @if (Model.Image != null)
+    {
+      @Model.Image.RenderWcPictureTag(useSources: true)
+    }
+    @if (!string.IsNullOrEmpty(Model.Title))
+    {
+        <h3>@Model.Title</h3>
+    }
+    @if (!string.IsNullOrEmpty(Model.Text))
+    {
+        @Model.Text
+    }
+    @if (Model.Link != null && !string.IsNullOrEmpty(Model.Link.Url))
+    {
+        <a href="@Model.Link.Url" target="@Model.Link.Target">@DictionaryService.GetDictionaryValue(DictionaryKeys.Global.ReadMore)</a>
+    }
+</div>

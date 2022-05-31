@@ -7,13 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc1" />
+        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc4" />
     </ItemGroup>
 
     <!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most, if not all, Windows Server editions will run NLS -->
     <ItemGroup>
       <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-      <PackageReference Include="uSync.Core" Version="9.4.0" />
+      <PackageReference Include="uSync" Version="10.0.0-beta1" />
+      <PackageReference Include="uSync.Core" Version="10.0.0-beta1" />
       <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) Or $(RuntimeIdentifier.StartsWith('win')) Or ('$(RuntimeIdentifier)' == '' And !$([MSBuild]::IsOSPlatform('osx')))" />
     </ItemGroup>
 
@@ -24,6 +25,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dit.Umb9.Mutobo.ToolBox\Dit.Umb9.Mutobo.ToolBox.csproj" />
   </ItemGroup>
 
     <!-- Keep this as false if ModelsBuilder mode is InMemoryAuto -->

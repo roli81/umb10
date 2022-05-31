@@ -1,0 +1,18 @@
+﻿@model Dit.Umb9.Mutobo.ToolBox.Interfaces.IVideoComponent
+
+
+@if (Model.Video != null)
+{
+
+
+    <a-video namespace="video-" controls @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")
+             height="@(Model.Height != null ? $"{Model.Height}px" : string.Empty)" width="@(Model.Width != null ? $"{Model.Width}px" : string.Empty)">
+        <source src="@Model.Video.Source" type="video/mp4">
+    </a-video>
+}
+else
+{
+    <a-video namespace="video-" @(Model.Anchor != string.Empty ? $"id={Model.Anchor}" : "")>
+        @Html.Raw(Model.Embedded)
+    </a-video>
+}
