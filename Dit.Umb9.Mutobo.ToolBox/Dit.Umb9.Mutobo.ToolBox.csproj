@@ -10,10 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Core" Version="10.0.0-rc4" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.0.0-rc4" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0-rc4" />
-    <PackageReference Include="Umbraco.ExaminePDF" Version="9.0.0" />
+    <PackageReference Include="Umbraco.Cms.Core" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="10.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+    <PackageReference Include="Umbraco.ExaminePDF" Version="10.0.0" />
   </ItemGroup>
 
 </Project>

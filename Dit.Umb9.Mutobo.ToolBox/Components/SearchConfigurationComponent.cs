@@ -88,8 +88,8 @@ namespace Dit.Umb9.Mutobo.ToolBox.Components
                                         {
                                             //scr: disabled @UMBRACO 10 Update enable this later
 
-                                            //moduleContent = IndexModules(_mutoboContentService.GetContent(contentNode, DocumentTypes.HomePage.Fields.Modules, culture.Key) as IEnumerable<MutoboContentModule>);
-                                            //e.ValueSet.Set("modules", moduleContent);
+                                            moduleContent = IndexModules(_mutoboContentService.GetContent(contentNode, DocumentTypes.HomePage.Fields.Modules, culture.Key) as IEnumerable<MutoboContentModule>);
+                                            //e.ValueSet. ("modules", moduleContent);
                                         }
                                         break;
 
@@ -100,7 +100,7 @@ namespace Dit.Umb9.Mutobo.ToolBox.Components
 
                                             //scr: disabled @UMBRACO 10 Update enable this later
 
-                                            //moduleContent = IndexModules(_mutoboContentService.GetContent(contentNode, DocumentTypes.ContentPage.Fields.Modules, culture.Key) as IEnumerable<MutoboContentModule>);
+                                            moduleContent = IndexModules(_mutoboContentService.GetContent(contentNode, DocumentTypes.ContentPage.Fields.Modules, culture.Key) as IEnumerable<MutoboContentModule>);
                                             //e.ValueSet.Set("modules", moduleContent);
                                         }
                                         break;
